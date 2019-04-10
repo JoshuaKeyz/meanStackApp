@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form *ngIf="!isLoading" (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input 
+        matInput type="text" 
+        name="title" 
+        [ngModel] ="post.title"
+        placeholder="Post Title"
+        required>
+    </mat-form-field>
+    <div>
+      <button mat-button>Pick Image</button>
+    </div>
+    <mat-form-field>
+      <textarea 
+        matInput rows="6" 
+        name="content" 
+        [ngModel] = "post.content"
+        placeholder="Post Content"
+        required></textarea>
+    </mat-form-field>
+    <button 
+      mat-raised-button 
+      type="submit" 
+      color="accent">
+      Save Post
+    </button>
+  </form>
+</mat-card>
+
+<p>{{enteredValue}}</p>
